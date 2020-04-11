@@ -1,0 +1,260 @@
+@charset "UTF-8";
+/* CSS Document 
+位置関係よりコンテンツの作成を優先する
+<?php language_attributes(); ?>
+*/
+
+
+/* サイドオープン時にメインコンテンツを覆う部分 */
+.overlay {
+	background: rgba(0,0,0,0);
+  -webkit-transition: all .5s ease;
+  	content: '';
+	display: block;
+	height: 100%;
+	left: 0;
+	position: fixed;
+  	top: 75px;
+  	transition: all .5s ease;
+	visibility: hidden;
+	width: 100%;
+  	z-index: 3;
+}
+
+.overlay::after {
+	color: rgba(255,255,255,0);
+	display: block;
+	font-size: 40px;
+  	font-weight: bold;
+	height: 50px;
+	left: 0;
+ 	 position: fixed;
+	text-align: center;
+ 	 -webkit-transition: all .5s ease;
+ 	top: 40%;
+ 	transition: all .5s ease;
+	visibility: hidden;
+	width: 100%;
+}
+
+.side-open .overlay {
+	background: rgba(0,0,0,.5);
+	cursor: pointer;
+	position: absolute;
+ 	visibility: visible;
+}
+
+.side-open .overlay::after {
+	color: rgba(255,255,255,.8);
+  	visibility: visible; 
+}
+
+/* サイドメニュー ※リストのスタイルは省略 */
+.side-menu {
+	font-size: 13px;
+	height: 100%;
+	padding-top: 150px;
+  	position: fixed;
+	right: 0;
+	text-align: left;
+ 	top: 0;
+	width: 300px;
+}
+
+.js__side-menu {
+	background: rgba(255,255,255,0.8);
+	font-size: 13px;
+	height: 700px;
+  	position: absolute;
+  	right: 0;
+	text-align: left;
+	top: 75px;
+	width: 300px;
+  	z-index: 40;
+}
+
+/* メインコンテンツ*/
+.wrapper, .side-open {
+  /*position: relative;footer位置の調整*/
+  /*padding-bottom: 292px;footer位置の調整*/
+	box-sizing: border-box;
+	font-size: 13px;
+  	height: 100%;
+  	-webkit-transition: all .5s ease;
+	
+  	transition: all .5s ease;
+	width: 100%;
+  	z-index: 2;
+}
+
+@media (min-width: 768px){
+	.wrapper {
+		padding-bottom: 325px;
+	}
+}
+
+.side-menu {
+	-webkit-transform: translate3d(600px, 0, 0);
+ 	transform: translate3d(600px, 0, 0);
+}
+
+.side-open {
+	height: 100%;
+	overflow: hidden;
+    width: 100%;
+	z-index: 40;
+}
+
+.panel-btn{
+	background: #fff;
+	border-radius: 50%;
+  	display: inline-block;
+	height: 45px;
+	margin: 4px 5px 0 0;
+  	position: relative;
+  	width: 45px;
+}
+
+.panel-btn-icon{
+	background: #E87C00;
+  	display: block;
+	height: 4px;
+	left: 50%;
+	margin: -2px 0 0 -12px;
+  	position: absolute;
+	transition: .2s;
+  	top: 50%;
+	width: 24px;
+}
+
+.panel-btn-icon:before, .panel-btn-icon:after{
+	background: #E87C00;
+	content: "";
+  	display: block;
+	height: 4px;
+	left: 0;
+  	position: absolute;
+	transition: .3s;
+  	top: 50%;
+	width: 24px;
+}
+
+.panel-btn-icon:before{
+ 	margin-top: -11px;
+}
+
+.panel-btn-icon:after{
+  	margin-top: 7px; 
+}
+
+.panel-btn .close{
+	background: transparent;
+	margin: -4px 0 0 -12px;
+}
+
+.panel-btn .close:before, .panel-btn .close:after{
+  	margin-top: 0;
+}
+
+.panel-btn .close:before{
+  	transform: rotate(-45deg);
+  	-webkit-transform: rotate(-45deg);
+}
+
+.panel-btn .close:after{
+  	transform: rotate(-135deg);
+  	-webkit-transform: rotate(-135deg);
+}
+
+.nav-text, .header-nav .searchform { /*検索欄のスタイル統一*/
+	color: #E87C00;
+	display: block;
+	font-size: 20px;
+	padding: 10px 0 10px 40px;
+}
+
+.header-nav {
+	margin: 0;
+	padding: 0;
+}
+
+.nav-text:hover {
+	background-color: #FAB260;
+}
+
+.nav-logo-search {
+    height: 23px;
+	padding-right: 15px;
+    position: relative;
+    top: 3px;
+	width: 23px;
+}
+
+/*ヘッダーのレスポンシブ表示切替*/
+@media (min-width: 768px) { 
+	
+	.sitetitle {
+		flex: 1;/*タイトルの左固定*/
+		font-size: 30px;
+		left: 85px;
+		margin-left: 10px;
+		position: absolute;
+   		top: 18px;
+	}
+	
+	.panel-btn {
+		display: none;/*ボタンの非表示*/
+	}
+	
+	.header-nav {
+		display: flex;
+		position: relative;
+    	top: 24px;
+	}
+	
+	.side-menu {
+		padding: 0;
+		position: relative;
+		transform: none;/*サイドからのスライドを削除し、デフォルトでトップにナビを表示*/
+   		width: auto;
+	}
+	
+	.nav-text, .header-nav .searchform {
+		color: #ffffff;
+		font-size: 14px;
+		padding: 10px;
+	}
+	
+	.nav-text-search {
+		display: none;
+	}
+	
+	.hero-image {
+		left: 0;
+		margin: auto;
+		max-width: 615px;
+		right: 0;
+    	top: -1.5em;
+	}
+	
+	.hero-text {
+		font-size: 70px;
+		left: 40px;
+    	line-height: 78px;
+    	top: 313px;
+	}
+	
+	.hero-subtext {
+		font-size: 26px;
+		left: 40px;
+	}
+	
+	.button-nav {
+		display: none;
+	}
+	
+	.search-field {
+		height: auto;
+		width: 135px;
+	}
+}

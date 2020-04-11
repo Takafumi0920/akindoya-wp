@@ -1,0 +1,37 @@
+.side-column { /*sidebar実装*/
+	flex: 3;
+    margin: 20px 40px 0 10px;
+    padding: 0;
+}
+
+.side-column ul {
+	margin: 0;
+	padding: 0;
+}
+
+
+.side-column li a {
+	display: block;
+	padding: 5px;
+	margin: 5px;
+    font-size: 14px;
+}
+
+.side-column li a:hover {
+	background-color: #FF8800;
+	opacity: 0.6;
+	
+}
+
+.widget {
+	margin: 30px 0;
+}
+
+.widgettitle {
+	display: block;
+	margin: 5px;
+	padding: 5px 10px;
+    color: #ffffff;
+	background-color: #FF8800;
+	
+}

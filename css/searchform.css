@@ -1,0 +1,38 @@
+.search-field {
+	background-color: #FAB260;
+	border: #ffffff;
+	border-radius: 20px;
+	display: inline-block;
+	height: 28px;
+	font-size: 12px;
+	width: 130px;
+}
+
+.search-submit {
+	height: 20px;
+	padding-left: 5px;
+	vertical-align: middle;
+}
+
+/*ヘッダーのレスポンシブ表示切替*/
+@media (min-width: 768px) { 
+	
+	.search-submit {
+		height: 15px;
+	}
+
+	.searchform {
+		position: relative;
+	}
+
+	.search-field { /*検索欄のスタイル設定*/
+		font-size: 14px;
+		height: 35px;
+		width: 165px;
+	}
+
+	.search-field {
+		height: auto;
+		width: 135px;
+	}
+}

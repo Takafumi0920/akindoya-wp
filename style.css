@@ -1,0 +1,925 @@
+/*
+Theme Name: 夕張あきんど屋専用テーマ1.9
+Theme URI: 
+Author: Takafumi Yamamoto
+Author URI: https://yutori-farmer.com
+Description:夕張あきんど屋のサイト専用テーマです。
+Version: 1.9
+Text Domain: 
+
+*/
+
+
+/* 規則 
+・idにスタイルを当てない。優先度が高く後から上書きが聞かないから
+・汎用タグでスタイルを指定しない。タグの変更があっても対応できるようにクラスで指定
+・marginはtopで当てる
+・画面幅はiphone8の375pxを基準に考える
+*/
+@import url("css/menu-jquery.css");
+@import url("css/searchform.css");
+@import url("css/contactform7.css");
+@import url("css/sidebar.css");
+
+body {
+	background-color: #E8E4E4;
+	font-family: a-otf-midashi-go-mb31-pr6n, sans-serif;
+    font-style: normal;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+}
+
+
+header {
+	background-color: #FF8800;
+	margin: auto;
+	padding: 10px 20px;
+	position: relative;
+	z-index: 10;
+}
+
+a {
+	color: #0B0B0B;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+/*user agent打ち消し*/
+.nothing {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	max-height: 55px;
+}
+
+.logo {
+	margin-left: 5px;
+	height: 55px;
+	width: 55px;
+}
+
+.sitetitle {
+	color: #086F9A;
+	font-family: dnp-shuei-4gob-std, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 26px;
+	margin: 0;
+    padding: 0;
+}
+
+.menu {
+	background: none;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	font-size: 40px;
+	margin-right: 10px;
+	outline: none;/*枠線消す*/
+	padding: 0;
+}
+
+.title {
+	font-size: 20px;
+}
+
+.flexcontainer {
+	display: flex;
+}
+
+@media (min-width: 768px){
+	.post-sidebar {
+		display: flex;
+	}
+}
+
+main {
+    position: relative;
+}
+
+.hero {
+	height: 592px;
+	position: relative;
+}
+
+.hero-image {
+	left: -40px;
+	position: absolute;
+    top: -1.5em;
+	width: 100%;
+}
+
+.hero-text {
+	color: #0B0B0B;
+	font-size: 38px;
+	font-weight: 600;
+	left: 40px;
+	letter-spacing: 3px;
+	line-height: 45px;
+	margin: 0;
+	position: absolute;
+    top: 420px;
+}
+.hero-subtext {
+	color: #086F9A;
+	font-size: 16px;
+	font-weight: 400;
+	left: 40px;
+	letter-spacing: 0;
+	margin: 0;
+	position: absolute;
+	top: 520px;
+}
+
+.button-nav {
+	position: fixed;
+	right: 15px;
+	top: 386px;
+	z-index: 30;
+}
+
+.js__button-nav {
+	display: none;/*メニュー展開時ボタンを非表示*/
+}
+
+.circle-button {
+	align-items: center;
+	background-color: #FF8800;
+	border: solid 1px #DB7D11;
+	border-radius: 50%;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+	display: flex;
+	height: 50px;
+	justify-content: center;
+	margin: 15px auto;
+	position: relative;
+	width: 50px;
+	z-index: 10;
+}
+
+.circle-button a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	z-index: 11;
+}
+
+.circle-button:hover {
+	background-color: rgba(219,125,17,1.00);	
+}
+
+.column {
+	height: 500px;
+	position: relative;
+	z-index: 10;/*ボーダー白線の削除*/
+}
+
+.column1 {
+    bottom: 0;
+}
+
+.column2 {
+	bottom: 0;
+}
+.column3 {
+	margin: 40px 0;
+}
+
+.texttop {
+	margin-top: 10px;
+}
+.textwrap {
+	background: rgba(255,255,255,0.8);/*領域の不透明*/
+	padding: 20px 0;
+	position: absolute;
+	width: 100%;
+}
+
+.column-text, .column-subtext {
+	margin: 5px 0 0 20px;
+}
+.column-text {
+	font-size: 25px;
+	margin: 0 40px;
+}
+
+.column-subtext {
+	font-size: 16px;
+	letter-spacing: 3px;
+	margin: 24px 80px 20px 40px;
+}
+
+.ak-photo {
+	background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+	flex-basis: 55%;
+	min-height: 410px;/*div間に何もないため高さが０で処理されてしまうのを防ぐ*/
+}
+
+.column-link {
+	color: blue;
+}
+
+.column-link:hover {
+	color: rgba(0, 0, 0, 0.7);
+	cursor: pointer;
+	opacity:0.6;
+}
+
+@media (min-width: 768px){
+	.column {
+		display: flex;
+		margin: 20px 40px 20px 0;
+	}
+	.ak-photo {
+		flex: 6;
+		margin: 30px 40px 30px 0;
+	}
+	
+	.ak-photoreverse {
+		margin: 30px 0 20px 40px;
+	}
+	
+	.textwrap {
+		background: none;
+		flex: 4;
+		position: relative;
+		width: auto;
+	}
+	.flexdirection-reverse {
+		flex-direction: row-reverse;
+		margin: 0 0 0 40px;
+	}
+	.column-text {
+		font-size: 35px;
+		margin: 0 0 20px 0;
+	}
+	.column-subtext {
+		font-size: 18px;
+		letter-spacing: 3px;
+		line-height: 30px;
+		margin: 0;
+	}
+}
+
+.shopping-cart {
+	transform: scale(0.22,0.22);
+}
+
+.contents-shopping-cart {
+	transform: scale(0.29,0.29);
+}
+
+.melon-color {
+	transform: scale(0.2,0.2);
+}
+
+.question {
+	transform: scale(0.15,0.15);
+}
+
+.contents-question {
+	transform: scale(0.2,0.2);
+}
+
+.information {
+	transform: scale(0.2,0.2);
+}
+
+.button-container {
+	border-top: solid 2px #ffffff;
+	margin: auto;
+    max-width: 400px;
+	min-height: 300px;
+    position: relative;
+  	text-align: center;
+	top: -2px;
+	width: 70%;
+}
+
+.no-bordertop {
+	border-top: none;
+}
+
+.contents-circle-button {
+	align-items: center;
+	background-color: #FF8800;
+	border-radius: 50%;
+	display: flex;
+	height: 70px;
+	justify-content: center;
+	margin: 40px auto;
+	width: 70px;
+}
+
+.contents-button-txt {
+	font-size: 22px;
+	text-align: center;
+}
+
+.contents-button {
+	background-color: #C4C631;
+	border: solid 2px #B1B237;/*線色*/
+	border-radius: 10px;
+	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+	color: #FFF;
+	display: inline-block;
+	font-weight: bold;
+	margin: 20px auto;
+	padding: 1.7vw 5.5vw;
+}
+
+.contents-button:hover {
+	opacity: 0.5;
+}
+
+.cotents-button:active {
+  /*押したとき*/
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+@media (min-width: 768px){
+	.button-container {
+		border: none;
+	}
+	.column3 {
+		display: flex;
+		margin-top: 20px;
+	}
+	.contents-button {
+		font-size: .9rem;
+		padding: 1vw 3.5vw;
+	}
+}
+
+/*---------------------------------------------------------------------
+bread
+-----------------------------------------------------------------------*/
+.bread_crumb ul {
+	display: flex;
+	padding-left: 20px;
+}
+
+.bread_crumb a {
+	color: #0B0B0B;
+}
+
+.bread_crumb li::before {
+	background-image: url("img/chevron-circle-right.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	content: '';
+	display: inline-block;
+	height: 100%;
+	margin: auto 5px; 
+	vertical-align: middle;
+	width: 13px;
+}
+
+/*パンクズリスト矢印のトップ階層を非表示に*/
+.level-1.top:before {
+	content: none;
+}
+
+
+.post-wrapper {
+	flex: 7;
+	margin: 10px 20px;
+}
+
+.card {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 3;/*リンクをカード全体に被せる*/
+}
+
+.post-latest {
+	border-radius: 7px;/*ホバー時の下線の丸みを確保*/
+	margin: 0 20px 0 20px;
+	position: relative;
+	z-index: 1;/*リンクをカード全体にするための重ね順基準*/
+}
+
+.post-latest-photo {
+	background-position: center;
+    background-size: cover;
+	background-image: url("../img/yatai.jpg");
+	border-radius: 7px;
+	min-height: 32.5vw;
+	position: relative;	
+	z-index: 2;
+}
+
+.post-latest-textwrap {
+	background: rgba(255,255,255,0.8);
+    position: absolute;
+    top: 21vw;
+    width: 100%;
+	z-index: 2;
+}
+
+
+.post {
+	background: #ffffff;
+    border-radius: 7px;
+	display: flex;
+	height: 24vw;
+	margin: 28px 20px 20px 20px;
+	position: relative;/*無いとカード全体にリンクが広がらない*/
+	z-index: 1;
+}
+
+
+.post-hover:hover {
+	border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+ 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	cursor: pointer;
+	opacity: 0.6;
+	
+}
+
+.post-textwrap {
+	flex: 7;
+	text-overflow: ellipsis;
+	width: 100%;
+	word-break: break-all;
+	z-index: 2;
+}
+
+.post-latest-title {
+	font-size: 2.5vw;
+	margin: 5px;
+}
+
+.post-title {
+	font-size: 3.2vw;
+	height: 80%;
+	margin-top: 2vw;
+	overflow: hidden;/*はみ出したタイトルを非表示に*/
+	padding: 0 20px 0 20px;
+	text-overflow: ellipsis;
+}
+
+.post-photo {
+    background-position: center;
+    background-size: cover;
+	flex: 4;
+	margin: 2vw 0 2vw 2vw;
+	z-index: 2;
+}
+
+.clockicon {
+	height: 100%;
+	margin: 0 10px 0 5px;
+}
+
+.latest-clock, .clock {
+	background-color: #E87C00;
+	display: flex;
+	font-size: 2vw;
+	font-family: a-otf-ud-shin-maru-go-pr6n, sans-serif;
+	font-weight: 600;
+	height: 3vw;
+	margin-left: -2vw;
+	padding: 5px 5px 5px 0;
+    width: fit-content;
+}
+
+.latest-clock {
+	margin-left: 0;
+}
+
+@media (min-width: 768px){
+	.post-wrapper {
+		margin: 0 4vw 0 7vw;
+	}
+	
+	.post {
+		height: 155px;
+		margin: 10px 3vw 30px 3vw;
+		max-width: 700px;
+	}
+	
+	.post-latest {
+		margin: 10px 3vw 30px 3vw;
+	}
+	
+	.post-latest:hover {
+		max-width: 700px;
+	}
+	
+	.post-latest-photo {
+		max-width: 700px;
+		min-height: 24.5vw;
+	}
+	
+	.post-latest-title {
+		font-size: 24px;
+	}
+	
+	.latest-clock {
+		margin-left: 0;
+	}
+	
+	.post-latest-textwrap {
+		max-width: 700px;
+		top: 16vw;
+	}
+	
+	.post-photo {
+		margin: 10px 0 10px 5px;
+	}
+	
+	.post-title {
+		font-size: 16px;
+	}
+	
+	.clock {
+		margin-left: -7px;
+	}
+	.latest-clock, .clock {
+		font-size: 16px;
+		height: 24px;
+	}
+	
+	.post-textwrap {
+    	flex: 4;
+		width: 280px;
+	}
+}
+
+/*---------------------------------------------------------------------
+page.php
+-----------------------------------------------------------------------*/
+.page-body {
+	margin: 40px auto 20px auto;
+	min-height: 250px;
+	overflow-wrap: break-word;
+	padding: 0 20px;
+	width: 90%;
+	word-break: break-all;
+}
+
+.page-title {
+	font-size: 6vw;
+	text-align: center;
+}
+
+.page-text {
+	font-size: 2vw;
+    margin: 0 35px;
+}
+
+@media (min-width: 768px){
+	.page-title {
+		font-size: 3vw;
+	}
+}
+/*---------------------------------------------------------------------
+page.php
+-----------------------------------------------------------------------*/
+.meta-data {
+	display: flex;
+	height: fit-content;
+}
+
+.meta-category a {
+	font-size: 15px;
+	margin: 0;
+	margin-left: 5px;
+	padding: 0;
+	vertical-align: middle;
+}
+.meta-time {
+	font-size: 14px;
+}
+	
+.metanothing {
+	display: flex;
+		
+}
+
+/*---------------------------------------------------------------------
+Template: contact
+-----------------------------------------------------------------------*/
+
+.phone {
+    height: 90%;
+}
+
+.phone-button {
+	background-color: #E87C00;
+    border-radius: 8px;
+	height: 40px;
+	margin: 30px 0;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+    padding: 11px 18px;
+	position: relative; /*aタグのリンク範囲指定のため*/
+	width: 280px;
+}
+
+.phone-wrapper {
+	display: flex;
+	left: 33%;
+	position: absolute;
+}
+
+.phone-link {
+	border-radius: 8px;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+}
+
+.phone-link:hover {
+	background: rgba(0,0,0,0.3);
+}
+
+.phoneicon {
+	height: 40px;
+	margin: 0;
+}
+
+.phone-text {
+	color: #fff;
+	font-size: 8px;
+	margin: 0 0 0 5px;
+}
+
+.phone-text span {
+	font-size: 18px;
+}
+
+@media (min-width: 768px){
+	.contact-text {
+		font-size: 1.3rem;
+	}
+	
+}
+
+/*---------------------------------------------------------------------
+item
+-----------------------------------------------------------------------*/
+.item-container {
+	background-color: #ffffff;
+	border: 1px solid #c4bbb8;
+	border-radius: 10px;
+	height: 39vw;
+	margin: 30px auto;
+	position: relative;
+	width: 56vw;
+}
+
+.item-container:hover {
+	border-bottom: solid 2px #d27d00;/*少し濃い目の色に*/
+ 	box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+	cursor: pointer;
+	opacity:0.6;	
+}
+
+.item-container a {
+	border-radius: 10px;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 3;
+}
+
+.itemcenter {
+	justify-content: space-around;
+	margin: 50px auto;
+	padding: 0;
+}
+
+.item-image img {
+	border-radius: 10px 10px 0 0;
+	height: 22vw;
+	object-fit: cover;
+	width: 100%;
+}
+
+.textcontainer {
+	margin: 5px;
+	margin-top: 2vw;
+	position: relative;
+}
+
+.item-name {
+	font-size: 15px;
+    margin: 5px;
+	text-align: left;
+}
+
+.item-price {
+	background-color: #FDE6C6;
+	color: red;
+	display: inline-block;
+	font-family: ro-san-std, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	margin: 5px;
+	padding: 5px;
+	position: absolute;
+	right: 0px;
+	text-align: right;
+	transform: rotate(15deg);
+    top: -3.5vw;
+}
+
+.item-sub {
+	bottom: 0;
+	font-size: 5px;
+	margin: 5px;
+	position: absolute;
+    right: 5px;
+}
+
+@media (min-width: 768px){
+	.item-container {
+		height: 22vw;
+		margin: 30px auto;
+		width: 26vw;
+	}
+	
+	.itemcenter {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	.item-image img {
+		height: 15vw;
+	}
+	
+	.item-price {
+		font-size: 20px;
+		margin: 5px;
+   		top: -3.5vw;
+	}
+	
+	.item-name {
+		font-size: 18px;
+    	margin: 5px;
+	}
+}
+/*---------------------------------------------------------------------
+footer
+-----------------------------------------------------------------------*/
+footer {
+	background-color: #E87C00;
+	color: #ffffff;
+    width: 100%;
+}
+
+footer .footer-wrapper {
+	padding: 40px 20px;
+}
+
+@media (min-width: 768px){
+	footer .footer-wrapper {
+		display: flex;
+		flex-wrap: wrap;/*フレックスコンテナ内のアイテムの折り返し方法 wrapは折り返し*/
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1000px;
+		max-width: var(--large-width);
+	} 
+	
+	footer {
+		position: absolute;
+	}
+}
+
+.footer-title {
+    font-family: dnp-shuei-4gob-std, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+	letter-spacing: 0.2em;
+	margin-top: -13px;
+	margin-bottom: -6px;
+}
+
+.footer-subtitle {
+	color: #086F9A;
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.footer-info {
+	flex: 0 0 40%;
+	margin-bottom: 30px;
+}
+
+.footer-info a {
+	color: inherit;/*親要素の設定を引き継ぐ*/
+}
+
+.footer-sns {
+	margin-top: 20px;
+}
+
+.footer-sns ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-sns a {
+	border: solid 1px currentcolor;
+	border-radius: 50%;
+	color: inherit;
+	display: block;
+	font-size: 16px;
+	line-height: 2em;
+	margin-right: 8px;
+	padding: 0;
+	text-align: center;
+	width: 2em;
+}
+
+.footer-sns a:hover {
+	background-color: rgba(0,0,0,0.3);
+}
+
+.footer-list {
+	flex: 0 0 60%;
+}
+
+.footer-list div {
+	margin-bottom: 20px;
+}
+.footer-list h3 {
+	border-bottom: solid 1px currentcolor;
+	font-size: 14px;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.footer-list ul {
+	margin: 0;
+	padding: 0;	
+}
+
+.footer-list a {
+	color: inherit;
+	display: block;/*リンク有効範囲をブロック化する*/
+	font-size: 12px;
+	padding: 5px;
+}
+
+.footer-list a:hover {
+	background-color: rgba(0,0,0,0.3);
+}
+
+.footer-list .searchform {
+	display: none;
+}
+
+@media (min-width: 768px) {
+	.footer-list {
+		display: flex;
+	}
+	
+	.footer-list div {
+		flex: 1;
+	}
+	
+	.footer-list div:not(:first-child) {
+		margin-left: 40px;
+	}
+}
+
+.footer-copyright {
+	flex: 0 0 100%;/*カラム落ちを利用*/
+}
+
+.footer-copyright {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
